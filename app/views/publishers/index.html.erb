@@ -1,2 +1,16 @@
-<h1>Publishers#index</h1>
-<p>Find me in app/views/publishers/index.html.erb</p>
+<h2>Publisher</h2>
+
+<table class="table table-striped">
+  <tr>
+    <th>Publisehr Name</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @publishers.each do |pub| %>
+    <tr>
+      <td><%= pub.name%></td>
+      <td><%= link_to "Edit", edit_publisher_path(pub.id)%> |
+          <%= link_to "Delete", publisher_path(pub), method: :delete, data: {confirm: "Are you sure?"}%></td>
+    </tr>
+  <% end %>
+</table>
